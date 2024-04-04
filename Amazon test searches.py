@@ -41,3 +41,9 @@ driver.find_element(By.ID, "createAccountSubmit")
 
 #New To Amazon text(in place of Other issues with sign in link, does not appear on page)
 driver.find_element(By.XPATH, "//*[text()='New to Amazon?']")
+
+#Find by CSS Selector
+driver.find_element(By.CSS_SELECTOR, "select.nav-search-dropdown")
+driver.find_element(By.CSS_SELECTOR, ".nav-search-dropdown")
+driver.find_element(By.CSS_SELECTOR, "#searchDropdownBox")
+driver.find_element(By.CSS_SELECTOR, "[title='Search in']")
