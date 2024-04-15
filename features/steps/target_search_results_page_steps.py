@@ -1,7 +1,10 @@
 from selenium.webdriver.common.by import By
 from behave import then
 from time import sleep
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
+driver.wait = WebDriverWait(driver, timeout=10)
 
 SEARCH_RESULT_HEADER = (By.XPATH, "//div[@data-test='resultsHeading']")
 SELECT_ITEM = (By.XPATH, "//button[@data-test='chooseOptionsButton']")
@@ -17,10 +20,8 @@ def verify_search_results(context, expected_item):
 
 @then('Place item in cart')
 def place_item_in_cart(context):
-    context.driver.find_element(*SELECT_ITEM).click()
-    sleep(6)
+    context.driver.find_element(*SELECT_ITEM)
+    driver.wait.until(EC.element_to_be_clickable(*SELECT_ITEM)).click()
     context.driver.find_element(*SELECT_SHIPPING).click()
-    sleep(6)
     context.driver.find_element(*ADD_SHIPPING).click()
-    sleep(6)
     context.driver.find_element(*ADD_TO_CART).click()
