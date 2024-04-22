@@ -3,9 +3,9 @@ Feature: Target site checks
   # Enter feature description here
 
   Scenario: Verify cart is empty
-    Given Target home page is open
-    When Click on cart logo in top corner
-    Then Verify cart is empty
+    Given Open Target main page
+    When Click on Cart icon
+    Then Verify cart empty message
 
   Scenario: User can put item into cart
     Given Open Target main page
