@@ -30,7 +30,7 @@ def before_step(context, step):
 def after_step(context, step):
     if step.status == 'failed':
         print('\nStep failed: ', step)
-
+        context.app.base_page.save_screenshot(step)
 
 def after_scenario(context, feature):
     context.driver.delete_all_cookies()

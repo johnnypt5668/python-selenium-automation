@@ -3,6 +3,7 @@ Feature: Target login test
   # Enter feature description here
 
   Scenario: Verify login is functional
-    Given Target homepage is open
-    When Click on login on top and on side
+    Given Open Target main page
+    When Click on header login
+    Then Click on side login
     Then Verify sign in page is open

@@ -11,6 +11,8 @@ HEADER_LINKS = (By.CSS_SELECTOR, "a[id*='utilityNav']")
 ADD_TO_CART_BTN = (By.CSS_SELECTOR, "[id*='addToCartButton']")
 SIDE_NAV_PRODUCT_NAME = (By.CSS_SELECTOR, "h4[class*='StyledHeading']")
 SIDE_NAV_ADD_TO_CART_BTN = (By.CSS_SELECTOR, "[data-test='orderPickupButton']")
+SIDE_LOGIN = (By.CSS_SELECTOR, "a['data-test='accountNav-signIn']")
+
 
 @given('Open Target main page')
 def open_target(context):
@@ -23,6 +25,10 @@ def search_product(context, item):
 @when('Click on Cart icon')
 def click_cart(context):
     context.app.header.click_cart()
+
+@then('Click on side login')
+def click_side_login(self):
+    self.wait_until_clickable_click(*self.SIDE_LOGIN)
 
 
 @when('Click on Add to Cart button')

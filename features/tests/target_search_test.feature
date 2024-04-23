@@ -11,7 +11,7 @@ Feature: Search tests
     Given Open Target main page
     When Search for tea
     Then Verify search results are shown for tea
-
+    Then Verify that URL has tea
 
 
   Scenario Outline: User can search for products
