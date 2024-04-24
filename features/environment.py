@@ -18,6 +18,8 @@ def browser_init(context):
     context.wait = WebDriverWait(context.driver, 15)
 
     context.app = Application(context.driver)
+
+
 def before_scenario(context, scenario):
     print('\nStarted scenario: ', scenario.name)
     browser_init(context)
@@ -31,6 +33,7 @@ def after_step(context, step):
     if step.status == 'failed':
         print('\nStep failed: ', step)
         context.app.base_page.save_screenshot(step)
+
 
 def after_scenario(context, feature):
     context.driver.delete_all_cookies()

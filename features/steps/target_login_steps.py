@@ -15,7 +15,7 @@ SIDE_LOGIN = (By.CSS_SELECTOR, "a['data-test='accountNav-signIn']")
 
 @when('Click on header login')
 def header_login(context):
-    context.app.header.header_login()
+    context.app.header.click_login()
 
 
 
