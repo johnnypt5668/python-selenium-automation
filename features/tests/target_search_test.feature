@@ -16,3 +16,18 @@ Feature: Search tests
 
   Scenario Outline: User can search for products
     Given Open Target main page
+    When Search for <item>
+    Then Verify search results are shown for <expected_item>
+    Examples:
+    |item         |expected_item  |
+    |coffee       |coffee         |
+    |tea          |tea            |
+    |mug          |mug            |
+    # Enter steps here
+
+Scenario: Verify user can see product names and images
+  Given Open Target main page
+  When Search for 'AirPods (3rd Generation)'
+  Then Verify every product has a name and image
+  #  Given Open Target main page
+  #  When Search for 'tea'
