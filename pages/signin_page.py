@@ -14,7 +14,7 @@ class SigninPage(Page):
         assert expected_text == actual_text, f'Error! Text {expected_text} not on page'
 
     def click_tc_link(self):
-        self.click(self.TC_LINK)
+        self.click(*self.TC_LINK)
 
     def verify_tc_opened(self):
         self.verify_partial_url('terms-conditions/')

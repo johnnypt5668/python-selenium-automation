@@ -29,19 +29,20 @@ def store_original_login_window(context):
 
 @then('Click on Target terms and conditions link')
 def click_target_terms_and_conditions_link(context):
-    context.app.signin_page.click_tc_link()
     sleep(5)
+    context.app.signin_page.click_tc_link()
+
 
 @then('Switch to newly opened window')
 def switch_to_newly_opened_window(context):
-    context.app.signin_page.switch_to_newly_opened_window()
+    context.app.signin_page.switch_to_new_window()
 
 @then('Verify Terms and Conditions page is opened')
 def verify_terms_and_conditions_page(context):
-    context.app.signin_page.verify_tc_page()
+    context.app.signin_page.verify_tc_opened()
 
 @then('User can close new window and switch back to original')
 def close_and_return_to_original_window(context):
     context.app.signin_page.close()
-    context.app.signin_page.switch_window_by_id(context.original_window.id)
+    context.app.signin_page.switch_window_by_id(context.original_window)
 
