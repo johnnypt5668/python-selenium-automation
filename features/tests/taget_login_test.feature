@@ -17,3 +17,10 @@ Feature: Target login test
     And Switch to newly opened window
     Then Verify Terms and Conditions page is opened
     And User can close new window and switch back to original
+
+  Scenario: Verify incorrect password message appears with invalid password
+    Given Open Target main page
+    When Click on header login
+    Then Click on side login
+    And Enter incorrect email and password
+    And Verify incorrect password message appears

@@ -25,9 +25,17 @@ Feature: Search tests
     |mug          |mug            |
     # Enter steps here
 
+
 Scenario: Verify user can see product names and images
   Given Open Target main page
   When Search for 'AirPods (3rd Generation)'
   Then Verify every product has a name and image
   #  Given Open Target main page
   #  When Search for 'tea'
+
+
+Scenario: User can see favorites tooltip for search results
+  Given Open Target main page
+  When Search for tea
+  And Hover ob favorites icon
+  Then Favorites tooltip is shown

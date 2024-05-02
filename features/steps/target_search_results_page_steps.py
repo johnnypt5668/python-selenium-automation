@@ -1,5 +1,5 @@
 from selenium.webdriver.common.by import By
-from behave import then
+from behave import when, then
 from time import sleep
 #from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -14,6 +14,17 @@ SELECT_ITEM = (By.XPATH, "//button[@data-test='chooseOptionsButton']")
 SELECT_SHIPPING = (By.XPATH, "//button[@data-test='fulfillment-cell-shipping']")
 ADD_SHIPPING = (By.XPATH, "//button[@data-test='shippingButton']")
 ADD_TO_CART = (By.CSS_SELECTOR, "a[href='/cart']")
+
+
+@when('Hover ob favorites icon')
+def hover_fav_icon(context):
+    context.app.search_result_page.hover_fav_icon()
+
+
+@then('Favorites tooltip is shown')
+def verify_fav_tooltip(context):
+    context.app.search_result_page.verify_fav_tooltip()
+
 
 
 @then('Place item in cart')

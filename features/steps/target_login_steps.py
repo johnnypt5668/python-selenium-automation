@@ -22,10 +22,20 @@ def verify_sign_in(context):
     sign_in_text=context.driver.find_element(By.XPATH, "//*[text()='Sign into your Target account']").text
     assert 'Sign into your Target account' in sign_in_text, f"Expected text {sign_in_text} is not on page."
 
-
 @then('Store original login window')
 def store_original_login_window(context):
     context.original_window = context.app.signin_page.get_current_window()
+
+@then('Enter incorrect email and password')
+def eneter_incorrect_username(context):
+    context.app.signin_page.enter_email_and_password("johnypt568@yahoo.com", "password")
+    sleep(5)
+
+@then('Verify incorrect password message appears')
+def verify_incorrect_password_message(context):
+    context.app.signin_page.verify_incorrect_password_message()
+
+
 
 @then('Click on Target terms and conditions link')
 def click_target_terms_and_conditions_link(context):
